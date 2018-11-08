@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="PlantillaDefault.xhtml">
+
+            <ui:define name="content">
+                <h:form>
+                    <h:commandLink action="Usuarios" styleClass="iniLink">
+                        <p:graphicImage library="imgs" name="usuarios.png" styleClass="img" />
+                        <h:outputText value = "Usuarios" />
+                    </h:commandLink>
+
+                    <h:commandLink action="Libros" styleClass="iniLink">
+                        <p:graphicImage library="imgs" name="libros.png" styleClass="img" />
+                        <h:outputText value = "Libros" />
+                    </h:commandLink>
+
+                    <h:commandLink action="Proyectos" styleClass="iniLink">
+                        <p:graphicImage library="imgs" name="proyectos.png" styleClass="img" />
+                        <h:outputText value = "Proyectos" />
+                    </h:commandLink>
+
+                    <h:commandLink action="Revistas" styleClass="iniLink">
+                        <p:graphicImage library="imgs" name="revistas.png" styleClass="img" />
+                        <h:outputText value = "Revistas" />
+                    </h:commandLink>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

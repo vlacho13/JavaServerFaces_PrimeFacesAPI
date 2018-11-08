@@ -1,0 +1,88 @@
+
+#top {
+    background-color: #dddddd;
+    color: white;
+    padding: 5px;
+    margin: 80px 0px 10px 0px;
+    border: solid black 1px;
+}
+
+#bottom {
+    display: block;
+    background-color: #dddddd;
+    padding: 5px;
+    margin: 10px 0px 0px 0px;
+    text-align: end;
+    border: solid black 1px;
+}
+
+#left {
+    float: left;
+    background-color: #dddddd;
+    padding: 5px;
+    height: 220px;
+    width: 180px;
+    border: solid black 1px;
+}
+
+#right {
+    float: right;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+    border: solid black 1px;
+}
+
+#content {
+    text-align: center;
+    height: 400px;    
+}
+
+.center_content {
+    position: relative;
+    background-color: #dddddd;
+    padding: 5px;
+    border: solid black 1px;
+}
+
+.left_content {
+    background-color: #dddddd;
+    padding: 5px;
+    border: solid black 1px;
+}
+
+.right_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin: 0px 170px 0px 170px;
+    border: solid black 1px;
+}
+
+#top a:link, #top a:visited {
+  color: white;
+  font-weight : bold;
+  text-decoration: none;
+  border: solid black 1px;
+}
+
+#top a:link:hover, #top a:visited:hover  {
+  color: black;
+  font-weight : bold;
+  text-decoration : underline;
+  border: solid black 1px;
+}
+
+#banner {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#loginbox {
+    margin-top: 30px;
+}
+
+.navbar {
+    margin-left: 50px;
+    width: 490px;
+}

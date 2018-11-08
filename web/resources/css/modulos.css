@@ -1,0 +1,21 @@
+form {
+    margin: 0 auto;
+}
+
+.dialog {
+    margin-bottom: 50px;
+}
+.label {
+    float: left;
+    width: 100px;
+}
+
+.txtField {
+    width: 150px;
+}
+
+.btnMenu {
+    margin-left: 5px;
+    margin-bottom: 10px;
+    float: left;
+}
