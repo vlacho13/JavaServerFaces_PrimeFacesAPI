@@ -5,7 +5,7 @@
 }
 
 #banner {
-    height: 140px;
+    height: 100px;
     width: 100%;
 }
 
@@ -42,7 +42,7 @@
 
 #content {
     text-align: center;
-    height: 450px; 
+    height: 540px; 
     border: solid black 1px;
 }
 
