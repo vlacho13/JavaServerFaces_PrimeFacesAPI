@@ -42,7 +42,7 @@
 
 #content {
     text-align: center;
-    height: 540px; 
+    height: 450px; 
     border: solid black 1px;
 }
 
@@ -87,7 +87,11 @@ h1 {
 .iniLink {
     display: inline-block;
     margin: 30px;
-    width: 100px;
+    width: 120px;
+}
+
+.btnLink {
+    
 }
 
 .boton {

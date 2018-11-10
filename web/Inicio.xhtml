@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
@@ -13,22 +14,22 @@
                 <h:form>
                     <h:commandLink action="Usuarios" styleClass="iniLink">
                         <p:graphicImage library="imgs" name="usuarios.png" styleClass="img" />
-                        <h:outputText value = "Usuarios" />
+                        <p:button outcome="Usuarios" value="Usuarios" styleClass="btnLink boton" />
                     </h:commandLink>
 
                     <h:commandLink action="Libros" styleClass="iniLink">
                         <p:graphicImage library="imgs" name="libros.png" styleClass="img" />
-                        <h:outputText value = "Libros" />
+                        <p:button outcome="Libros" value="Libros" styleClass="btnLink boton" />
                     </h:commandLink>
 
                     <h:commandLink action="Proyectos" styleClass="iniLink">
                         <p:graphicImage library="imgs" name="proyectos.png" styleClass="img" />
-                        <h:outputText value = "Proyectos" />
+                        <p:button outcome="Proyectos" value="Proyectos" styleClass="btnLink boton" />
                     </h:commandLink>
 
                     <h:commandLink action="Revistas" styleClass="iniLink">
                         <p:graphicImage library="imgs" name="revistas.png" styleClass="img" />
-                        <h:outputText value = "Revistas" />
+                        <p:button outcome="Revistas" value="Revistas" styleClass="btnLink boton" />
                     </h:commandLink>
                 </h:form>
             </ui:define>
