@@ -74,8 +74,7 @@ public class UsuarioDao implements Serializable {
 
     public void setListaMem(List<Usuario> listaMem) {
         this.listaMem = listaMem;
-    }
-    
+    }    
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProgWebPU");    
     
@@ -127,7 +126,7 @@ public class UsuarioDao implements Serializable {
             em.persist(u);
             em.getTransaction().commit();
             init();
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Sistema:", "Usuario Creado Exitosamente"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Sistema:", "Usuario Agregado Exitosamente"));
         } catch (Exception e) {
             em.getTransaction().rollback();
         }

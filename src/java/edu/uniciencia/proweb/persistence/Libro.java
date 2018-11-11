@@ -27,8 +27,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Libro.findByIdLibro", query = "SELECT l FROM Libro l WHERE l.idLibro = :idLibro")
     , @NamedQuery(name = "Libro.findByTitulo", query = "SELECT l FROM Libro l WHERE l.titulo = :titulo")
     , @NamedQuery(name = "Libro.findByAutor", query = "SELECT l FROM Libro l WHERE l.autor = :autor")
-    , @NamedQuery(name = "Libro.findByEditorial", query = "SELECT l FROM Libro l WHERE l.editorial = :editorial")
-    , @NamedQuery(name = "Libro.findByFecha", query = "SELECT l FROM Libro l WHERE l.fecha = :fecha")})
+    , @NamedQuery(name = "Libro.findByCategoria", query = "SELECT l FROM Libro l WHERE l.categoria = :categoria")
+    , @NamedQuery(name = "Libro.findByEditorial", query = "SELECT l FROM Libro l WHERE l.editorial = :editorial")})
 public class Libro implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,10 +40,10 @@ public class Libro implements Serializable {
     private String titulo;
     @Column(name = "autor")
     private String autor;
+    @Column(name = "categoria")
+    private String categoria;
     @Column(name = "editorial")
     private String editorial;
-    @Column(name = "fecha")
-    private String fecha;
 
     public Libro() {
     }
@@ -76,20 +76,20 @@ public class Libro implements Serializable {
         this.autor = autor;
     }
 
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
     public String getEditorial() {
         return editorial;
     }
 
     public void setEditorial(String editorial) {
         this.editorial = editorial;
-    }
-
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
     }
 
     @Override

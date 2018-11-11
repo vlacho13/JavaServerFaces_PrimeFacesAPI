@@ -8,7 +8,99 @@
         <ui:composition template="./PlantillaDefault.xhtml">
 
             <ui:define name="content">
-                PROYECTOS
+                <h:outputStylesheet name="./css/modulos.css" />
+
+                <h:form id="form">
+                    <p:growl id="msgs" showDetail="true" />
+
+                    <p:dataTable var="usuario" value="#{usuarioDao.listaMem}" id="dt" rows="10" paginator="true" editable="true">
+                        <f:facet name="header">
+                            LISTA DE USUARIOS
+                        </f:facet>
+
+                        <p:ajax event="rowEdit" listener="#{usuarioDao.actualizarAceptar}" update=":form:msgs" />
+                        <p:ajax event="rowEditCancel" listener="#{usuarioDao.actualizarCancelar}" update=":form:msgs" />                        
+
+                        <p:column headerText="Id" style="width:5%">
+                            <p:cellEditor>
+                                <f:facet name="output"><h:outputText value="#{usuario.idUsuario}" /></f:facet>
+                                <f:facet name="input"><p:inputText value="#{usuario.idUsuario}" style="width:100%"/></f:facet>
+                            </p:cellEditor>                           
+                        </p:column>
+
+                        <p:column headerText="Nombre" style="width:20%">
+                            <p:cellEditor>
+                                <f:facet name="output"><h:outputText value="#{usuario.usuario}" /></f:facet>
+                                <f:facet name="input"><p:inputText value="#{usuario.usuario}" style="width:100%"/></f:facet>
+                            </p:cellEditor>                            
+                        </p:column>
+
+                        <p:column headerText="Clave" style="width:20%">
+                            <p:cellEditor>
+                                <f:facet name="output"><h:outputText value="#{usuario.clave}" /></f:facet>
+                                <f:facet name="input"><p:inputText value="#{usuario.clave}" style="width:100%"/></f:facet>
+                            </p:cellEditor>                            
+                        </p:column>
+
+                        <p:column headerText="Correo" style="width:20%">
+                            <p:cellEditor>
+                                <f:facet name="output"><h:outputText value="#{usuario.correo}" /></f:facet>
+                                <f:facet name="input"><p:inputText id="usucorreo" value="#{usuario.correo}" style="width:100%"/></f:facet>
+                            </p:cellEditor>                            
+                        </p:column>
+
+                        <p:column headerText="Editar" style="width:10%"> 
+                            <p:rowEditor />                                                                                          
+                        </p:column>
+
+                        <p:column headerText="Eliminar" style="width:10%">
+                            <p:growl id="message" showDetail="true" />
+                            <p:commandButton actionListener="#{usuarioDao.eliminarUsuario(usuario.idUsuario)}" update="form" icon="ui-icon-trash" title="Eliminar Usuario" >    
+                                <p:confirm header="Confirmar" message="Esta seguro?" icon="ui-icon-alert"/>                                
+                            </p:commandButton>
+                        </p:column>
+
+
+                        <f:facet name="footer">
+                            Se encontraron #{usuarioDao.getListaUsuario().size()} usuarios registrados.                            
+                        </f:facet>                    
+                    </p:dataTable><br />    
+
+                </h:form>
+
+                <h:form id="modal">
+
+                    <p:commandButton value="Crear Usuario" type="button" onclick="PF('dlg2').show();" />
+                    <p:dialog header="Crear Nuevo Usuario" styleClass="dialog" widgetVar="dlg2" modal="true" height="160" width="350">
+                        <br />
+                        <h:outputLabel for="id" value="Id:" styleClass="label labeltop"/>
+                        <p:inputText id="txtid" value="#{usuarioDao.id}" label="id" styleClass="txtField" /><br />
+                        <h:outputLabel for="nombre" value="Nombre:" styleClass="label"/>
+                        <p:inputText id="txtnombre" value="#{usuarioDao.usuario}" label="nombre" styleClass="txtField" /><br />
+                        <h:outputLabel for="clave" value="Clave:" styleClass="label"/>
+                        <p:inputText id="txtclave" value="#{usuarioDao.clave}" label="clave" styleClass="txtField" /><br />
+                        <h:outputLabel for="correo" value="Correo:" styleClass="label"/>
+                        <p:inputText id="txtcorreo" value="#{usuarioDao.correo}" label="correo" styleClass="txtField" /><br /><br />
+
+                        <p:commandButton value="Guardar Usuario" id="btnGuardar" actionListener="#{usuarioDao.guardarUsuario}" update="form" oncomplete="PF('dlg2').hide();" icon="ui-icon-disk" ajax="true" />                        
+                    </p:dialog><br />                    
+
+                    <p:button outcome="Inicio" icon="ui-icon-circle-arrow-w" styleClass="btnSalir" value="Ir a Menu" title="Ir a Menu">
+                        <f:param name="menu" value="" />
+                    </p:button>
+                    
+                    <p:button outcome="index" icon="ui-icon-arrowthickstop-1-e" styleClass="btnMenu" value="Salir" iconPos="right" title="Salir">
+                        <f:param name="menu" value="" />
+                    </p:button>
+
+                </h:form>
+
+                <h:form id="dialog">
+                    <p:confirmDialog global="true">
+                        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" update=":form:dt" icon="ui-icon-check" ajax="true" />
+                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                    </p:confirmDialog>                               
+                </h:form>
             </ui:define>
 
         </ui:composition>

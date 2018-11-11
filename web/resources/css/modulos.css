@@ -29,3 +29,26 @@ form {
     margin-bottom: 10px;
     float: left;
 }
+
+.editBtn {    
+    height: 20px;
+    margin-left: 30%;
+    width: 40px;
+    border: 1px solid #a8a8a8;
+    border-radius: 3px;    
+    background: #c4c4c4 -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,0.8)),to(rgba(255,255,255,0)));
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, 0.8)), to(rgba(255, 255, 255, 0)));
+    background-color: rgb(196, 196, 196);
+    text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+}
+
+.editBtn:hover {
+    background: #85b2cb -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,0.6)),to(rgba(255,255,255,0)));
+    background-color: rgb(133, 178, 203);
+    font-weight: bold;
+    color: #313131;
+}
+
+.delBtn {
+    height: 24px;
+}
