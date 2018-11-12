@@ -1,4 +1,3 @@
-
 package edu.uniciencia.proweb.daos;
 
 import edu.uniciencia.proweb.persistence.Libro;
@@ -20,7 +19,7 @@ import org.primefaces.event.RowEditEvent;
 @ViewScoped
 
 public class LibroDao implements Serializable {
-    
+
     private List<Libro> listaMem;
     private int id;
     private String titulo;
@@ -75,30 +74,30 @@ public class LibroDao implements Serializable {
     public void setEditorial(String editorial) {
         this.editorial = editorial;
     }
-    
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProgWebPU");    
-    
+
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProgWebPU");
+
     @PostConstruct
     public void init() {
         listaMem = getListaLibro();
     }
-    
+
     public List<Libro> getListaLibro() {
         EntityManager em = emf.createEntityManager();
         StringBuilder sql = new StringBuilder();
         sql.append("SELECT o from Libro o");
         List<Libro> lista = em.createQuery(sql.toString()).getResultList();
-        if (lista != null && lista.size() > 0) {           
+        if (lista != null && lista.size() > 0) {
             return lista;
-        } else {            
+        } else {
             return null;
         }
-    }      
-    
+    }
+
     public void eliminar() {
         eliminarLibro(id);
     }
-    
+
     public void eliminarLibro(Integer id) {
         EntityManager em = emf.createEntityManager();
         try {
@@ -120,8 +119,8 @@ public class LibroDao implements Serializable {
         l.setAutor(autor);
         l.setTitulo(titulo);
         l.setCategoria(categoria);
-        l.setEditorial(editorial);                
-        
+        l.setEditorial(editorial);
+
         em.merge(l);
         try {
             em.getTransaction().begin();
@@ -144,7 +143,7 @@ public class LibroDao implements Serializable {
             l.setTitulo(lib.getTitulo());
             l.setCategoria(lib.getCategoria());
             l.setEditorial(lib.getEditorial());
-            
+
             em.merge(l);
             em.getTransaction().commit();
             System.out.println("ok");
@@ -155,7 +154,7 @@ public class LibroDao implements Serializable {
     }
 
     public void actualizarAceptar(RowEditEvent event) {
-        Libro l = (Libro) event.getObject();             
+        Libro l = (Libro) event.getObject();
         actualizarLibro(l);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Sistema:", "Libro Actualizado"));
     }
@@ -163,7 +162,7 @@ public class LibroDao implements Serializable {
     public void actualizarCancelar(RowEditEvent event) {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Sistema:", "Cancelado"));
     }
-    
+
     public void persist(Object object) {
         EntityManager em = emf.createEntityManager();
         try {

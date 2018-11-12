@@ -9,13 +9,14 @@ form {
 .dialog {
     margin-bottom: 50px;
 }
-.label {
+.label {    
     float: left;
     width: 100px;
 }
 
 .txtField {
     width: 150px;
+    margin: 2px 0px 2px 0px;
 }
 
 .btnMenu {

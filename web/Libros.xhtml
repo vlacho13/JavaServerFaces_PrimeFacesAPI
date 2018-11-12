@@ -48,14 +48,23 @@
                         <p:column headerText="Categoria" style="width:10%">
                             <p:cellEditor>
                                 <f:facet name="output"><h:outputText value="#{libro.categoria}" /></f:facet>
-                                <f:facet name="input"><p:inputText value="#{libro.categoria}" style="width:100%"/></f:facet>
+                                <f:facet name="input">
+                                    <h:selectOneMenu value="#{libro.categoria}" style="width:100%">
+                                        <f:selectItem itemLabel="Seleccionar" itemValue="" />
+                                        <f:selectItem itemLabel="Informatica" itemValue="Informatica" />
+                                        <f:selectItem itemLabel="Arte" itemValue="Arte" />
+                                        <f:selectItem itemLabel="Matematicas" itemValue="Matematicas" />
+                                        <f:selectItem itemLabel="Biologia" itemValue="Biologia" />
+                                        <f:selectItem itemLabel="Literatura" itemValue="Literatura" />
+                                    </h:selectOneMenu>
+                                </f:facet>
                             </p:cellEditor>                            
                         </p:column>
-                        
+
                         <p:column headerText="Editorial" style="width:10%">
                             <p:cellEditor>
                                 <f:facet name="output"><h:outputText value="#{libro.editorial}" /></f:facet>
-                                <f:facet name="input"><p:inputText value="#{editorial.correo}" style="width:100%"/></f:facet>
+                                <f:facet name="input"><p:inputText value="#{libro.editorial}" style="width:100%"/></f:facet>
                             </p:cellEditor>                            
                         </p:column>
 
@@ -80,7 +89,7 @@
 
                 <h:form id="modal">
 
-                    <p:commandButton value="Agregar Libro" type="button" onclick="PF('dlg2').show();" />
+                    <p:commandButton value="Agregar Libro" onclick="PF('dlg2').show();" />
                     <p:dialog header="Agregar Nuevo Libro" styleClass="dialog" widgetVar="dlg2" modal="true" height="190" width="350">
                         <br />
                         <h:outputLabel for="id" value="Id:" styleClass="label labeltop"/>
@@ -90,7 +99,15 @@
                         <h:outputLabel for="autor" value="Autor" styleClass="label"/>
                         <p:inputText id="txtautor" value="#{libroDao.autor}" label="autor" styleClass="txtField" /><br />
                         <h:outputLabel for="categoria" value="Categoria" styleClass="label"/>
-                        <p:inputText id="txtcorreo" value="#{libroDao.categoria}" label="categoria" styleClass="txtField" /><br />
+                        <h:selectOneMenu value="#{libroDao.categoria}" style="width:150px">
+                            <f:selectItem itemLabel="Seleccionar" itemValue="" />
+                            <f:selectItem itemLabel="Informatica" itemValue="Informatica" />
+                            <f:selectItem itemLabel="Arte" itemValue="Arte" />
+                            <f:selectItem itemLabel="Matematicas" itemValue="Matematicas" />
+                            <f:selectItem itemLabel="Biologia" itemValue="Biologia" />
+                            <f:selectItem itemLabel="Literatura" itemValue="Literatura" />
+                        </h:selectOneMenu>
+                        
                         <h:outputLabel for="editorial" value="Editorial" styleClass="label"/>
                         <p:inputText id="txteditorial" value="#{libroDao.editorial}" label="editorial" styleClass="txtField" /><br /><br />
 
