@@ -4,9 +4,9 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>edu.uniciencia.proweb.persistence.Usuarios</class>
     <class>edu.uniciencia.proweb.persistence.Usuario</class>
-    <class>edu.uniciencia.proweb.persistence.Revista</class>
-    <class>edu.uniciencia.proweb.persistence.Proyecto</class>
     <class>edu.uniciencia.proweb.persistence.Libro</class>
+    <class>edu.uniciencia.proweb.persistence.Proyecto</class>
+    <class>edu.uniciencia.proweb.persistence.Revista</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/progweb?zeroDateTimeBehavior=convertToNull"/>

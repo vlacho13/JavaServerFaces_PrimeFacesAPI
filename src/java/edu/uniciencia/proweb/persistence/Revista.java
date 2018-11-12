@@ -26,8 +26,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Revista.findAll", query = "SELECT r FROM Revista r")
     , @NamedQuery(name = "Revista.findByIdRevista", query = "SELECT r FROM Revista r WHERE r.idRevista = :idRevista")
     , @NamedQuery(name = "Revista.findByNombre", query = "SELECT r FROM Revista r WHERE r.nombre = :nombre")
-    , @NamedQuery(name = "Revista.findByEditorial", query = "SELECT r FROM Revista r WHERE r.editorial = :editorial")
-    , @NamedQuery(name = "Revista.findByArea", query = "SELECT r FROM Revista r WHERE r.area = :area")})
+    , @NamedQuery(name = "Revista.findByCategoria", query = "SELECT r FROM Revista r WHERE r.categoria = :categoria")
+    , @NamedQuery(name = "Revista.findByUniversidad", query = "SELECT r FROM Revista r WHERE r.universidad = :universidad")})
 public class Revista implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -37,10 +37,10 @@ public class Revista implements Serializable {
     private Integer idRevista;
     @Column(name = "nombre")
     private String nombre;
-    @Column(name = "editorial")
-    private String editorial;
-    @Column(name = "area")
-    private String area;
+    @Column(name = "categoria")
+    private String categoria;
+    @Column(name = "universidad")
+    private String universidad;
 
     public Revista() {
     }
@@ -65,20 +65,20 @@ public class Revista implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getEditorial() {
-        return editorial;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setEditorial(String editorial) {
-        this.editorial = editorial;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
-    public String getArea() {
-        return area;
+    public String getUniversidad() {
+        return universidad;
     }
 
-    public void setArea(String area) {
-        this.area = area;
+    public void setUniversidad(String universidad) {
+        this.universidad = universidad;
     }
 
     @Override

@@ -40,7 +40,7 @@ public class Proyecto implements Serializable {
     @Column(name = "autor")
     private String autor;
     @Column(name = "fecha")
-    private String fecha;
+    private Integer fecha;
 
     public Proyecto() {
     }
@@ -73,11 +73,11 @@ public class Proyecto implements Serializable {
         this.autor = autor;
     }
 
-    public String getFecha() {
+    public Integer getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Integer fecha) {
         this.fecha = fecha;
     }
 
